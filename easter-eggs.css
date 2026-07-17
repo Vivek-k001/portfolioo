@@ -1,0 +1,108 @@
+/* =============================================
+   EASTER EGGS CSS MODULE 
+   Safely sandboxed styles for physics and terminal.
+   ============================================= */
+
+/* ---------------------------------
+   1. Terminal Modal
+----------------------------------- */
+#easter-terminal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 13, 21, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 10000; /* above everything */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 10vh;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+#easter-terminal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.terminal-window {
+    width: 90%;
+    max-width: 800px;
+    height: 70vh;
+    background: rgba(20, 24, 38, 0.85);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(-50px) scale(0.98);
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+#easter-terminal-overlay.active .terminal-window {
+    transform: translateY(0) scale(1);
+}
+
+.terminal-header {
+    background: rgba(30,35,55,0.9);
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.terminal-controls { display: flex; gap: 8px; }
+.t-btn { width: 12px; height: 12px; border-radius: 50%; cursor: pointer;}
+.t-close { background: #ff5f56; }
+.t-min { background: #ffbd2e; }
+.t-max { background: #27c93f; }
+
+.terminal-title {
+    font-family: 'Space Grotesk', monospace;
+    font-size: 0.8rem;
+    color: #8e8e93;
+    letter-spacing: 0.05em;
+}
+
+.terminal-body {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+    font-family: 'Courier New', Courier, monospace;
+    color: #e0e0e0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.terminal-line { margin-bottom: 8px; }
+.cmd-prompt { color: #00ff99; font-weight: bold; margin-right: 10px; }
+.cmd-user { color: #006aff; font-weight: bold; }
+.cmd-dir { color: #ff0095; font-weight: bold; }
+
+.terminal-input-row {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.terminal-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    flex: 1;
+    caret-color: #00ff99;
+}
+
+/* Light mode overrides for terminal (keep it somewhat dark glass) */
+[data-theme="light"] #easter-terminal-overlay { background: rgba(255,255,255,0.4); }
+[data-theme="light"] .terminal-window { background: rgba(255,255,255,0.95); border: 1px solid rgba(0,0,0,0.1); color: #000; box-shadow: 0 40px 100px rgba(0,0,0,0.2); }
+[data-theme="light"] .terminal-header { background: rgba(240,240,245,0.9); border-bottom: 1px solid rgba(0,0,0,0.05); }
+[data-theme="light"] .terminal-body { color: #1c1c1e; }
+[data-theme="light"] .terminal-input { color: #1c1c1e; }
+

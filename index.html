@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivek K — Creative Developer & Flutter Engineer</title>
+    <meta name="description"
+        content="Vivek K — Flutter Developer, UI/UX Designer & Creative Software Engineer. Building apps that move people.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Modular Easter Eggs Sandbox -->
+    <link rel="stylesheet" href="easter-eggs.css">
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+
+    <!-- ============ FLOATING HEADER CORNERS ============ -->
+    <div class="float-logo">
+        <a href="#hero" class="logo-link">
+            <span class="logo-bracket">[</span>VIVEK.K<span class="logo-bracket">]</span>
+        </a>
+    </div>
+    <div class="float-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <svg class="icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <path
+                    d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
+                </path>
+            </svg>
+            <svg class="icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- ============ GLASS PILL NAVIGATION ============ -->
+    <nav class="navbar-container" id="glassNav">
+        <div class="ios-glass-island">
+            <div class="nav-track">
+                <button class="dot active" id="dot-0" onclick="scrollToSection(0)">
+                    <span class="label">Home</span>
+                </button>
+                <button class="dot" id="dot-1" onclick="scrollToSection(1)">
+                    <span class="label">About</span>
+                </button>
+                <button class="dot" id="dot-2" onclick="scrollToSection(2)">
+                    <span class="label">Skills</span>
+                </button>
+                <button class="dot" id="dot-3" onclick="scrollToSection(3)">
+                    <span class="label">Works</span>
+                </button>
+                <button class="dot" id="dot-4" onclick="scrollToSection(4)">
+                    <span class="label">Edu</span>
+                </button>
+                <button class="dot" id="dot-5" onclick="scrollToSection(5)">
+                    <span class="label">Certs</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============ HERO ============ -->
+    <section id="hero" class="hero-section" data-section="0">
+        <canvas id="heroCanvas" class="hero-canvas"></canvas>
+        <div class="hero-content">
+            <p class="hero-eyebrow"><span class="mono-tag">[ SW Developer ]</span></p>
+            <h1 class="hero-name">
+                <span class="name-line">Vivek</span>
+                <span class="name-line accent-line">K.</span>
+            </h1>
+            <p class="hero-role">
+                <span class="mono-tag">—</span>
+                <span id="typewriterText" class="typewriter-text">Flutter Developer</span>
+                <span class="cursor-blink">|</span>
+            </p>
+            <p class="hero-tagline" data-aos data-aos-delay="300">
+                I build cross-platform apps<br>with clarity and precision
+            </p>
+            <div class="hero-actions" data-aos data-aos-delay="400">
+                <a href="#projects" class="btn-primary">View My Work
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+                <div class="social-pills">
+                    <a href="https://www.linkedin.com/in/vivek-k-b098a732a/" class="social-pill" target="_blank"
+                        aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/Vivek-k001" class="social-pill" target="_blank" aria-label="GitHub"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/vivek2cold" class="social-pill" target="_blank"
+                        aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://leetcode.com/u/vivek-k001/" class="social-pill" target="_blank"
+                        aria-label="LeetCode">
+                        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/leetcode.svg"
+                            alt="LeetCode" class="social-img-icon" width="16" height="16">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-photo-wrap" data-aos data-aos-delay="200">
+            <div class="hero-photo-frame">
+                <img src="img1.jpg" alt="Vivek K" class="hero-photo">
+                <div class="photo-glow"></div>
+            </div>
+            <div class="hero-stats">
+                <div class="h-stat">
+                    <span class="h-stat-num">3<span class="accent">+</span></span>
+                    <span class="h-stat-label">Yrs Exp</span>
+                </div>
+                <div class="h-stat-divider"></div>
+                <div class="h-stat">
+                    <span class="h-stat-num">10<span class="accent">+</span></span>
+                    <span class="h-stat-label">Projects</span>
+                </div>
+                <div class="h-stat-divider"></div>
+                <div class="h-stat">
+                    <span class="h-stat-num">17<span class="accent">+</span></span>
+                    <span class="h-stat-label">Certs</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-hint">
+            <span class="mono-tag"></span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="about-section reveal-section" data-section="1">
+        <div class="section-container">
+            <div class="about-big-text" data-aos>
+                <span class="big-word" data-rgb-hover="true">CREATIVE</span>
+                <span class="big-word outline">DEVELOPER</span>
+            </div>
+            <div class="about-grid">
+                <div class="about-left" data-aos>
+                    <p class="mono-tag section-label">[ 001 — About ]</p>
+                    <h2 class="section-heading">I focus on the space<br>between design & code.</h2>
+                </div>
+                <div class="about-right" data-aos data-aos-delay="150">
+                    <p class="about-para">I believe the difference between a good app and a <em>great</em> one lies in
+                        the physics of its animations and the soul of its design. I build cross-platform apps with
+                        Flutter, design pixel-perfect UIs, and explore AI-powered tools.</p>
+                    <p class="about-para">Currently pursuing <strong>MCA at MEA Engineering College</strong> — pushing
+                        boundaries at the intersection of technology and creativity.</p>
+                    <div class="about-tags">
+                        <span class="tag">Flutter</span>
+                        <span class="tag">UI/UX</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Figma</span>
+                        <span class="tag">Data Analyst</span>
+                        <span class="tag">AI/ML</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills" class="skills-section reveal-section" data-section="2">
+        <div class="section-container">
+            <div class="section-header-row" data-aos>
+                <p class="mono-tag section-label">[ 002 — Skills & Stack ]</p>
+                <h2 class="section-heading">Programming, Frameworks<br>& Tools I use</h2>
+            </div>
+        </div>
+        <div class="carousel-container" id="carouselContainer"></div>
+        <div class="slider-container" id="sliderContainer">
+            <div class="slider">
+                <div class="slide"><img src="1.png" alt="Design 1"></div>
+                <div class="slide"><img src="2.png" alt="Design 2"></div>
+                <div class="slide"><img src="3.png" alt="Design 3"></div>
+                <div class="slide"><img src="4.png" alt="Design 4"></div>
+                <div class="slide"><img src="8.png" alt="Design 5"></div>
+                <div class="slide"><img src="81.png" alt="Design 6"></div>
+            </div>
+            <p class="slider-hint mono-tag"></p>
+        </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="projects-section reveal-section" data-section="3">
+        <div class="section-container">
+            <div class="section-header-row" data-aos>
+                <p class="mono-tag section-label">[ 003 — Selected Works ]</p>
+                <h2 class="section-heading">Projects &<br>Applications</h2>
+            </div>
+
+            <div class="project-grid">
+
+                <!-- Project 1: POS -->
+                <article class="project-card rgb-card featured" data-aos>
+                    <div class="project-img-wrap">
+                        <div class="project-img-placeholder pos-bg">
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1" opacity="0.4">
+                                <rect x="2" y="3" width="20" height="14" rx="2" />
+                                <path d="M8 21h8M12 17v4" />
+                                <rect x="5" y="6" width="4" height="3" rx="0.5" />
+                                <rect x="10" y="6" width="4" height="3" rx="0.5" />
+                                <rect x="15" y="6" width="4" height="3" rx="0.5" />
+                                <rect x="5" y="11" width="4" height="3" rx="0.5" />
+                                <rect x="10" y="11" width="4" height="3" rx="0.5" />
+                            </svg>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-tags">
+                                <span class="ptag">Electron</span>
+                                <span class="ptag">React</span>
+                                <span class="ptag">SQLite</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-num mono-tag">001</span>
+                        <h3 class="project-title">POS Billing
+                            <span class="featured-badge">Featured</span>
+                        </h3>
+                        <p class="project-desc">A full-featured desktop Point-of-Sale billing system built with Electron
+                            & React. Supports invoice generation, product management, monthly reports, and admin/staff
+                            roles with SQLite backend.</p>
+                        <div class="project-meta">
+                            <span class="pmeta-tag">Desktop App</span>
+                            <span class="pmeta-tag">Electron</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2: ReliefLink -->
+                <article class="project-card rgb-card" data-aos data-aos-delay="80">
+                    <div class="project-img-wrap">
+                        <div class="project-img-placeholder relief-bg">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1" opacity="0.4">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                <path d="M9 12l2 2 4-4" />
+                            </svg>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-tags">
+                                <span class="ptag">Node.js</span>
+                                <span class="ptag">React</span>
+                                <span class="ptag">WebSocket</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-num mono-tag">002</span>
+                        <h3 class="project-title">ReliefLink</h3>
+                        <p class="project-desc">A disaster coordination portal connecting NGOs, volunteers, and relief
+                            teams in real-time. Features live alerts, volunteer skills registration, weather
+                            integration, and role-based dashboards.</p>
+                        <div class="project-meta">
+                            <span class="pmeta-tag">Full Stack</span>
+                            <span class="pmeta-tag">Real-time</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3: DEDO -->
+                <article class="project-card rgb-card" data-aos data-aos-delay="120">
+                    <div class="project-img-wrap">
+                        <img src="dedo.jpg" alt="DEDO App" class="project-img">
+                        <div class="project-overlay">
+                            <div class="project-tags">
+                                <span class="ptag">Flutter</span>
+                                <span class="ptag">Bloc</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-num mono-tag">003</span>
+                        <h3 class="project-title">DEDO</h3>
+                        <p class="project-desc">A modern Todo & task management app built with Flutter using the Bloc
+                            state management architecture for clean, scalable data flow.</p>
+                        <div class="project-meta">
+                            <span class="pmeta-tag">Mobile</span>
+                            <span class="pmeta-tag">Flutter</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 4: Dekozy -->
+                <article class="project-card rgb-card" data-aos data-aos-delay="160">
+                    <div class="project-img-wrap">
+                        <img src="dekozy.jpg" alt="Dekozy App" class="project-img">
+                        <div class="project-overlay">
+                            <div class="project-tags">
+                                <span class="ptag">Flutter</span>
+                                <span class="ptag">AR</span>
+                                <span class="ptag">AI</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-num mono-tag">004</span>
+                        <h3 class="project-title">DEKOZY</h3>
+                        <p class="project-desc">A modern AR & AI-integrated e-commerce app using Flutter — letting users
+                            virtually place furniture in their space before buying.</p>
+                        <div class="project-meta">
+                            <span class="pmeta-tag">E-commerce</span>
+                            <span class="pmeta-tag">AR/AI</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 5: Chatbot -->
+                <article class="project-card rgb-card" data-aos data-aos-delay="200">
+                    <div class="project-img-wrap">
+                        <img src="chatbot.jpg" alt="Trip Planning Bot" class="project-img">
+                        <div class="project-overlay">
+                            <div class="project-tags">
+                                <span class="ptag">Python</span>
+                                <span class="ptag">OpenAI</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-num mono-tag">005</span>
+                        <h3 class="project-title">Trip Planning Bot</h3>
+                        <p class="project-desc">An AI-powered trip planning chatbot built with Python, leveraging the
+                            ChatGPT API to generate personalised travel itineraries through conversational UI.</p>
+                        <div class="project-meta">
+                            <span class="pmeta-tag">AI</span>
+                            <span class="pmeta-tag">Python</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ EDUCATION — ZIGZAG TIMELINE ============ -->
+    <section id="education" class="education-section reveal-section" data-section="4">
+        <div class="section-container">
+            <div class="section-header-row" data-aos>
+                <p class="mono-tag section-label">[ 004 — Edu ]</p>
+                <h2 class="section-heading">Education &<br>Experience</h2>
+            </div>
+
+            <div class="zigzag-timeline" id="zigzagTimeline">
+                <div class="timeline-progress-line" id="timelineProgress"></div>
+
+                <div class="zigzag-item block">
+                    <div class="zigzag-content">
+                        <span class="zigzag-date">2020 – 2022</span>
+                        <span class="zigzag-type-tag">Academic</span>
+                        <h3>Pre-degree in Computer Commerce</h3>
+                        <h4>Mankada High School</h4>
+                        <p>I pursued Computer Commerce here, where I got introduced to foundational tech and business
+                            concepts. I learned the basic structure of websites and wrote simple programs in C and C++.
+                            Alongside, I also studied business principles and computerized accounting.</p>
+                    </div>
+                    <div class="zigzag-image">
+                        <img src="edu/mankada-hsse.png" alt="Mankada High School">
+                    </div>
+                </div>
+
+                <div class="zigzag-item block">
+                    <div class="zigzag-content">
+                        <span class="zigzag-date">2022 – 2025</span>
+                        <span class="zigzag-type-tag">Academic</span>
+                        <h3>BCA — Bachelor of Computer Applications</h3>
+                        <h4>Nasra College of Arts and Science</h4>
+                        <p>At Nasra, I dived deeper into tech by studying Full Stack Web Development. My coursework
+                            included programming, problem solving using C, and discrete math essentials. It helped me
+                            build a stronger logic base for development.</p>
+                    </div>
+                    <div class="zigzag-image">
+                        <img src="edu/nasra-college.jpg" alt="Nasra College">
+                    </div>
+                </div>
+
+                <div class="zigzag-item block">
+                    <div class="zigzag-content">
+                        <span class="zigzag-date">Feb – Dec 2024</span>
+                        <span class="zigzag-type-tag">Internship</span>
+                        <h3>Flutter Development</h3>
+                        <h4>Cyra Learning</h4>
+                        <p>Focused on Flutter mobile app development from scratch. I learned everything from UI basics
+                            to advanced state management. I worked with tools like GetX, FutureBuilder, and Provider to
+                            manage data flow.</p>
+                    </div>
+                    <div class="zigzag-image">
+                        <img src="edu/cyra-logo.png" alt="Cyra Flutter Dev">
+                    </div>
+                </div>
+
+                <div class="zigzag-item block">
+                    <div class="zigzag-content">
+                        <span class="zigzag-date">Dec 14, 2024</span>
+                        <span class="zigzag-type-tag">Workshop</span>
+                        <h3>Industrial Visit — Networking & Cloud</h3>
+                        <h4>Atmic Infocampus, Calicut</h4>
+                        <p>Explored the fundamentals of networking, cloud computing, and cybersecurity. Got hands-on
+                            experience with real machines and server setups. Learned how cloud systems are hosted and
+                            visualized network structures firsthand.</p>
+                    </div>
+                    <div class="zigzag-image">
+                        <img src="edu/infocampus.png" alt="Infocampus">
+                    </div>
+                </div>
+
+                <div class="zigzag-item block">
+                    <div class="zigzag-content">
+                        <span class="zigzag-date">Jan – Feb 2025</span>
+                        <span class="zigzag-type-tag">Internship</span>
+                        <h3>Penetration Testing</h3>
+                        <h4>RedTeam Hacker Academy</h4>
+                        <p>Attended a hands-on Penetration Testing internship. We explored cybersecurity basics, ethical
+                            and malicious approaches, and used tools like Kali Linux and Zphisher. A thrilling
+                            introduction to real-world ethical hacking.</p>
+                    </div>
+                    <div class="zigzag-image">
+                        <img src="edu/redteam-logo.jpg" alt="RedTeam Hacker Academy">
+                    </div>
+                </div>
+
+                <div class="zigzag-item block">
+                    <div class="zigzag-content">
+                        <span class="zigzag-date">April 12 – 19, 2025</span>
+                        <span class="zigzag-type-tag">Workshop</span>
+                        <h3>AI-Powered Chatbots</h3>
+                        <h4>Upcode Software Labs</h4>
+                        <p>Attended a focused one-week program on building AI-powered chatbots using Python. We explored
+                            core AI logic, integrated it into functional mobile apps, and received mentorship on future
+                            tech paths.</p>
+                    </div>
+                    <div class="zigzag-image">
+                        <img src="edu/upcode-logo.jpg" alt="Upcode Labs">
+                    </div>
+                </div>
+
+                <div class="zigzag-item block">
+                    <div class="zigzag-content">
+                        <span class="zigzag-date">April 13, 2025</span>
+                        <span class="zigzag-type-tag">Workshop</span>
+                        <h3>UI/UX Design Workshop</h3>
+                        <h4>Softroniics, Angadippuram</h4>
+                        <p>Participated in a UI/UX design workshop using Figma for interface design and layout creation.
+                            The session also included an insightful talk on AI and its potential in shaping the future.
+                        </p>
+                    </div>
+                    <div class="zigzag-image">
+                        <img src="edu/softroniics-logo.jpg" alt="Softroniics UI/UX">
+                    </div>
+                </div>
+
+                <div class="zigzag-item block">
+                    <div class="zigzag-content">
+                        <span class="zigzag-date">2025 – 2027 (Ongoing)</span>
+                        <span class="zigzag-type-tag ongoing">Ongoing</span>
+                        <h3>MCA — Master of Computer Applications</h3>
+                        <h4>MEA Engineering College</h4>
+                        <p>Pursuing Master of Computer Applications with a focus on software development, programming,
+                            and advanced computer science concepts. Building real-world projects and exploring emerging
+                            technologies.</p>
+                    </div>
+                    <div class="zigzag-image">
+                        <img src="edu/mea-college.png" alt="MEA Engineering College">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CERTIFICATES ============ -->
+    <section id="certs" class="certs-section reveal-section" data-section="5">
+        <div class="section-container">
+            <div class="section-header-row" data-aos>
+                <p class="mono-tag section-label">[ 005 — Credentials ]</p>
+                <h2 class="section-heading">Certificates &<br>Achievements</h2>
+            </div>
+            <div class="cert-grid">
+                <a href="cert/web-certificate.png" target="_blank" class="cert-card" data-aos>
+                    <div class="cert-img-wrap"><img src="cert/web-certificate.png" alt="Web Development" loading="lazy">
+                    </div>
+                    <div class="cert-info"><span class="cert-num mono-tag">01</span>
+                        <h4>Web Development</h4>
+                        <p>Talim</p>
+                    </div>
+                </a>
+                <a href="cert/red-team.jpg" target="_blank" class="cert-card" data-aos data-aos-delay="40">
+                    <div class="cert-img-wrap"><img src="cert/red-team.jpg" alt="Penetration Testing" loading="lazy">
+                    </div>
+                    <div class="cert-info"><span class="cert-num mono-tag">02</span>
+                        <h4>Penetration Testing</h4>
+                        <p>RedTeam Hacker Academy</p>
+                    </div>
+                </a>
+                <a href="cert/tata-certificate.png" target="_blank" class="cert-card" data-aos data-aos-delay="80">
+                    <div class="cert-img-wrap"><img src="cert/tata-certificate.png" alt="Cyber Security" loading="lazy">
+                    </div>
+                    <div class="cert-info"><span class="cert-num mono-tag">03</span>
+                        <h4>Cyber Security Analyst</h4>
+                        <p>TATA Strive</p>
+                    </div>
+                </a>
+                <a href="cert/cyra.jpg" target="_blank" class="cert-card" data-aos data-aos-delay="120">
+                    <div class="cert-img-wrap"><img src="cert/cyra.jpg" alt="Flutter Dev" loading="lazy"></div>
+                    <div class="cert-info"><span class="cert-num mono-tag">04</span>
+                        <h4>Flutter Development</h4>
+                        <p>Cyra Learnings</p>
+                    </div>
+                </a>
+                <a href="cert/upcode.jpg" target="_blank" class="cert-card" data-aos data-aos-delay="160">
+                    <div class="cert-img-wrap"><img src="cert/upcode.jpg" alt="AI Chatbot" loading="lazy"></div>
+                    <div class="cert-info"><span class="cert-num mono-tag">05</span>
+                        <h4>AI Chatbot Dev</h4>
+                        <p>Upcode Software Labs</p>
+                    </div>
+                </a>
+                <a href="cert/datacom-cloud.png" target="_blank" class="cert-card" data-aos data-aos-delay="200">
+                    <div class="cert-img-wrap"><img src="cert/datacom-cloud.png" alt="Cloud Computing" loading="lazy">
+                    </div>
+                    <div class="cert-info"><span class="cert-num mono-tag">06</span>
+                        <h4>Cloud Computing</h4>
+                        <p>DATACOM</p>
+                    </div>
+                </a>
+                <a href="cert/deloitte-data-analytics.png" target="_blank" class="cert-card" data-aos
+                    data-aos-delay="240">
+                    <div class="cert-img-wrap"><img src="cert/deloitte-data-analytics.png" alt="Data Analytics"
+                            loading="lazy"></div>
+                    <div class="cert-info"><span class="cert-num mono-tag">07</span>
+                        <h4>Data Analyst</h4>
+                        <p>Deloitte</p>
+                    </div>
+                </a>
+                <a href="cert/softronics-ui.png" target="_blank" class="cert-card" data-aos data-aos-delay="280">
+                    <div class="cert-img-wrap"><img src="cert/softronics-ui.png" alt="UI/UX Design" loading="lazy">
+                    </div>
+                    <div class="cert-info"><span class="cert-num mono-tag">08</span>
+                        <h4>UI/UX Designing</h4>
+                        <p>Softroniics</p>
+                    </div>
+                </a>
+                <a href="cert/lloyds-uiux.png" target="_blank" class="cert-card" data-aos data-aos-delay="320">
+                    <div class="cert-img-wrap"><img src="cert/lloyds-uiux.png" alt="UX Designing" loading="lazy"></div>
+                    <div class="cert-info"><span class="cert-num mono-tag">09</span>
+                        <h4>UX Designing</h4>
+                        <p>LLOYDS</p>
+                    </div>
+                </a>
+                <a href="cert/certificate-hp1.png" target="_blank" class="cert-card" data-aos data-aos-delay="360">
+                    <div class="cert-img-wrap"><img src="cert/certificate-hp1.png" alt="Cyber Intro" loading="lazy">
+                    </div>
+                    <div class="cert-info"><span class="cert-num mono-tag">10</span>
+                        <h4>Cyber Security Intro</h4>
+                        <p>HP Life</p>
+                    </div>
+                </a>
+                <a href="cert/datacom-cyber.png" target="_blank" class="cert-card" data-aos data-aos-delay="400">
+                    <div class="cert-img-wrap"><img src="cert/datacom-cyber.png" alt="Cyber Security" loading="lazy">
+                    </div>
+                    <div class="cert-info"><span class="cert-num mono-tag">11</span>
+                        <h4>Cyber Security</h4>
+                        <p>DATACOM</p>
+                    </div>
+                </a>
+                <a href="cert/techunique-certificate.png" target="_blank" class="cert-card" data-aos
+                    data-aos-delay="440">
+                    <div class="cert-img-wrap"><img src="cert/techunique-certificate.png" alt="Hacking Workshop"
+                            loading="lazy"></div>
+                    <div class="cert-info"><span class="cert-num mono-tag">12</span>
+                        <h4>Cyber & Hacking</h4>
+                        <p>TheTechUnique</p>
+                    </div>
+                </a>
+                <a href="cert/accenture-sw-eng.png" target="_blank" class="cert-card" data-aos data-aos-delay="480">
+                    <div class="cert-img-wrap"><img src="cert/accenture-sw-eng.png" alt="Software Engineering"
+                            loading="lazy"></div>
+                    <div class="cert-info"><span class="cert-num mono-tag">13</span>
+                        <h4>Software Engineering</h4>
+                        <p>Accenture</p>
+                    </div>
+                </a>
+                <a href="cert/datacom-sw-dev.png" target="_blank" class="cert-card" data-aos data-aos-delay="520">
+                    <div class="cert-img-wrap"><img src="cert/datacom-sw-dev.png" alt="Software Dev" loading="lazy">
+                    </div>
+                    <div class="cert-info"><span class="cert-num mono-tag">14</span>
+                        <h4>Software Development</h4>
+                        <p>DATACOM</p>
+                    </div>
+                </a>
+                <a href="cert/iv.jpg" target="_blank" class="cert-card" data-aos data-aos-delay="560">
+                    <div class="cert-img-wrap"><img src="cert/iv.jpg" alt="Networking" loading="lazy"></div>
+                    <div class="cert-info"><span class="cert-num mono-tag">15</span>
+                        <h4>Networking & Cloud</h4>
+                        <p>Infocampus</p>
+                    </div>
+                </a>
+                <a href="cert/nxtwave-certificate.png" target="_blank" class="cert-card" data-aos data-aos-delay="600">
+                    <div class="cert-img-wrap"><img src="cert/nxtwave-certificate.png" alt="AI Workshop" loading="lazy">
+                    </div>
+                    <div class="cert-info"><span class="cert-num mono-tag">16</span>
+                        <h4>AI Workshop</h4>
+                        <p>NxtWave</p>
+                    </div>
+                </a>
+                <a href="cert/certificate-hp2.png" target="_blank" class="cert-card" data-aos data-aos-delay="640">
+                    <div class="cert-img-wrap"><img src="cert/certificate-hp2.png" alt="Data Analytics HP"
+                            loading="lazy"></div>
+                    <div class="cert-info"><span class="cert-num mono-tag">17</span>
+                        <h4>Data Analytics</h4>
+                        <p>HP Life</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer" id="footer">
+        <div class="footer-big-text magnet-point" onclick="smoothScrollTo(document.body, 1600)"
+            aria-label="Back to top">VIVEK</div>
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-col">
+                    <p class="mono-tag footer-label">Navigate</p>
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Works</a>
+                    <a href="#education">Edu</a>
+                    <a href="#certs">Certs</a>
+                </div>
+                <div class="footer-col">
+                    <p class="mono-tag footer-label">Connect</p>
+                    <a href="https://www.linkedin.com/in/vivek-k-b098a732a/" target="_blank">LinkedIn ↗</a>
+                    <a href="https://github.com/Vivek-k001" target="_blank">GitHub ↗</a>
+                    <a href="https://www.instagram.com/vivek2cold" target="_blank">Instagram ↗</a>
+                    <a href="https://leetcode.com/u/vivek-k001/" target="_blank">LeetCode ↗</a>
+                </div>
+                <div class="footer-col">
+                    <p class="mono-tag footer-label">Contact</p>
+                    <a href="mailto:vk3699010@gmail.com">vk3699010@gmail.com</a>
+                    <p class="footer-location">Kerala, India 🇮🇳</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="legal-text">© 2026 Vivek K. All content on this website is protected by copyright law.
+                    Unauthorized use or reproduction of any materials without permission is strictly prohibited.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="easter-eggs.js"></script>
+</body>
+
+</html>
