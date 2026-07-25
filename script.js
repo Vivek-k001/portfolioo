@@ -500,3 +500,42 @@ if (window.DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermis
     });
 }
 });
+
+// =============================================
+// NUMBER COUNT UP ENGINE
+// =============================================
+const countUpObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const el = entry.target;
+            el.classList.add('in-view');
+            const target = parseInt(el.getAttribute('data-target'), 10);
+            const duration = 1500; // 1.5 seconds
+            let startTime = null;
+
+            function animateCount(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const progress = timestamp - startTime;
+                const ratio = Math.min(progress / duration, 1);
+                // ease out quad
+                const easeOut = 1 - (1 - ratio) * (1 - ratio);
+                const currentVal = Math.floor(easeOut * target);
+                el.childNodes[0].textContent = currentVal;
+
+                if (progress < duration) {
+                    requestAnimationFrame(animateCount);
+                } else {
+                    el.childNodes[0].textContent = target;
+                }
+            }
+            requestAnimationFrame(animateCount);
+            
+            // Unobserve after animating once
+            observer.unobserve(el);
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.count-up').forEach(el => {
+    countUpObserver.observe(el);
+});
