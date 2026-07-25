@@ -678,18 +678,28 @@ section {
 /* =============================================
    RGB TEXT FILL ("CREATIVE")
    ============================================= */
+@property --wobble-x { syntax: "<length>"; initial-value: 180px; inherits: false; }
+@property --wobble-y { syntax: "<length>"; initial-value: 180px; inherits: false; }
+
 [data-rgb-hover="true"] {
     position: relative;
     color: var(--text);
-    background-image: radial-gradient(circle 180px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    background-image: radial-gradient(ellipse var(--wobble-x, 180px) var(--wobble-y, 180px) at var(--mouse-x, 50%) var(--mouse-y, 50%),
             #ff4545, #00ff99, #006aff, #ff0095, var(--text) 80%);
     -webkit-background-clip: text;
     background-clip: text;
     transition: color 0.3s ease;
+    animation: fluid-blob 3s ease-in-out infinite alternate;
 }
 
 [data-rgb-hover="true"]:hover {
     color: transparent;
+}
+
+@keyframes fluid-blob {
+    0%   { --wobble-x: 150px; --wobble-y: 210px; filter: hue-rotate(-15deg); }
+    50%  { --wobble-x: 210px; --wobble-y: 150px; filter: hue-rotate(15deg); }
+    100% { --wobble-x: 160px; --wobble-y: 190px; filter: hue-rotate(0deg); }
 }
 
 @keyframes blink {

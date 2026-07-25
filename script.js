@@ -105,7 +105,7 @@ function animRing() {
     ringY += (dotY - ringY) * 0.11;
     cursorRing.style.left = ringX + 'px';
     cursorRing.style.top = ringY + 'px';
-    
+
     // Pass the lagged positioning directly into the text element!
     rgbTextElements.forEach(el => {
         const rect = el.getBoundingClientRect();
@@ -114,7 +114,7 @@ function animRing() {
         el.style.setProperty('--mouse-x', `${x}px`);
         el.style.setProperty('--mouse-y', `${y}px`);
     });
-    
+
     requestAnimationFrame(animRing);
 }
 
@@ -154,7 +154,7 @@ function updateProgress() {
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
     progressBar.style.width = pct + '%';
-    
+
     // Timeline drawing logic
     const zigBlock = document.getElementById('zigzagTimeline');
     const zigLine = document.getElementById('timelineProgress');
@@ -163,7 +163,7 @@ function updateProgress() {
         // Calculate how much of the timeline container has scrolled past the middle of the screen
         const elementTopOffset = rect.top - (window.innerHeight / 2);
         const elementHeight = rect.height;
-        
+
         // Progress between 0 and 1
         let progressPercent = 0;
         if (elementTopOffset < 0) {
@@ -431,7 +431,7 @@ document.querySelectorAll('.btn-primary, .social-pill, .footer-big-text').forEac
         const centerY = rect.top + rect.height / 2;
         const distX = e.clientX - centerX;
         const distY = e.clientY - centerY;
-        
+
         // Push the element slightly in the direction of the cursor natively
         btn.style.transform = `translate(${distX * 0.35}px, ${distY * 0.35}px) scale(1.05)`;
         btn.style.transition = 'transform 0.1s ease-out';
@@ -442,63 +442,63 @@ document.querySelectorAll('.btn-primary, .social-pill, .footer-big-text').forEac
         btn.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
     });
 
-// =============================================
-// 3D TILT GYROSCOPE ENGINE (Desktop + Android)
-// =============================================
-const tiltElements = document.querySelectorAll('.project-card, .cert-card');
+    // =============================================
+    // 3D TILT GYROSCOPE ENGINE (Desktop + Android)
+    // =============================================
+    const tiltElements = document.querySelectorAll('.project-card, .cert-card');
 
-const handleTilt = (e, el) => {
-    const rect = el.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    // Rotate max 8 deg
-    const multiplier = 8;
-    const xPct = (x / rect.width - 0.5) * 2;
-    const yPct = (y / rect.height - 0.5) * 2;
-    
-    el.style.transform = `perspective(1000px) rotateX(${yPct * -multiplier}deg) rotateY(${xPct * multiplier}deg) scale(1.02)`;
-};
+    const handleTilt = (e, el) => {
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
 
-const handleLeave = (el) => {
-    el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
-};
+        // Rotate max 8 deg
+        const multiplier = 8;
+        const xPct = (x / rect.width - 0.5) * 2;
+        const yPct = (y / rect.height - 0.5) * 2;
 
-tiltElements.forEach(el => {
-    el.style.transition = 'transform 0.15s ease-out';
-    el.addEventListener('mousemove', (e) => handleTilt(e, el));
-    el.addEventListener('mouseleave', () => {
-        el.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
-        handleLeave(el);
-        setTimeout(() => el.style.transition = 'transform 0.15s ease-out', 500);
-    });
-});
+        el.style.transform = `perspective(1000px) rotateX(${yPct * -multiplier}deg) rotateY(${xPct * multiplier}deg) scale(1.02)`;
+    };
 
-// Android Gyroscope tracking (Ignoring iOS permission prompts)
-if (window.DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission !== 'function') {
-    window.addEventListener('deviceorientation', (e) => {
-        // e.beta (front-to-back), e.gamma (left-to-right)
-        let beta = e.beta || 0; 
-        let gamma = e.gamma || 0;
-        
-        // Clamp bounds
-        beta = Math.max(-30, Math.min(30, beta));
-        gamma = Math.max(-30, Math.min(30, gamma));
-        
-        // Normalize
-        const rotateX = beta * -0.25;
-        const rotateY = gamma * 0.25;
+    const handleLeave = (el) => {
+        el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+    };
 
-        tiltElements.forEach(el => {
-            const rect = el.getBoundingClientRect();
-            // Only affect elements within view context
-            if(rect.top < window.innerHeight && rect.bottom > 0) {
-                el.style.transition = 'transform 0.1s linear';
-                el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            }
+    tiltElements.forEach(el => {
+        el.style.transition = 'transform 0.15s ease-out';
+        el.addEventListener('mousemove', (e) => handleTilt(e, el));
+        el.addEventListener('mouseleave', () => {
+            el.style.transition = 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            handleLeave(el);
+            setTimeout(() => el.style.transition = 'transform 0.15s ease-out', 500);
         });
     });
-}
+
+    // Android Gyroscope tracking (Ignoring iOS permission prompts)
+    if (window.DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission !== 'function') {
+        window.addEventListener('deviceorientation', (e) => {
+            // e.beta (front-to-back), e.gamma (left-to-right)
+            let beta = e.beta || 0;
+            let gamma = e.gamma || 0;
+
+            // Clamp bounds
+            beta = Math.max(-30, Math.min(30, beta));
+            gamma = Math.max(-30, Math.min(30, gamma));
+
+            // Normalize
+            const rotateX = beta * -0.25;
+            const rotateY = gamma * 0.25;
+
+            tiltElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                // Only affect elements within view context
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    el.style.transition = 'transform 0.1s linear';
+                    el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                }
+            });
+        });
+    }
 });
 
 // =============================================
