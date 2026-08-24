@@ -1,4 +1,4 @@
-/* =============================================
+﻿/* =============================================
    VIVEK K PORTFOLIO — Main Script
    ============================================= */
 
@@ -340,12 +340,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 // INFINITE LOGO CAROUSEL
 // =============================================
 const logoFiles = [
-    "ai logo.png", "c logo.png", "css logo.png", "docker-logo.png",
-    "flutter logo.png", "html logo.png", "java logo.png", "javascript logo.png",
-    "ml logo.png", "n8n-logo.png", "php logo.png", "python logo.png",
-    "react logo.png", "sql logo.png", "svelte-logo.png", "typescript-logo.png"
+    "ai-logo.png", "c-logo.png", "css-logo.png", "docker-logo.png",
+    "flutter-logo.png", "html-logo.png", "java-logo.png", "javascript-logo.png",
+    "machine-learning-logo.png", "n8n-logo.png", "php-logo.png", "python-logo.png",
+    "react-logo.png", "sql-logo.png", "svelte-logo.png", "typescript-logo.png"
 ];
-const folderPath = "logo/";
+const folderPath = "assets/logos/";
 const rowsCount = 3;
 
 function createCarousel() {
