@@ -564,7 +564,7 @@ section {
 .block {
     animation: appear linear;
     animation-timeline: view();
-    animation-range: entry 0% cover 40%;
+    animation-range: entry 0% cover 20%;
 }
 
 /* =============================================
@@ -1256,6 +1256,16 @@ section {
     /* Stay above the mask */
 }
 
+/* Stacked Card Layout for ReliefLink */
+.project-card.stacked-card {
+    grid-template-columns: 1fr;
+}
+.stacked-card .project-img-wrap {
+    aspect-ratio: 16/9;
+    border-top-right-radius: var(--radius);
+    border-bottom-left-radius: 0;
+}
+
 .featured .project-img-wrap {
     aspect-ratio: 16/9;
 }
@@ -1263,7 +1273,7 @@ section {
 .project-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.6s ease;
 }
 
@@ -2041,4 +2051,51 @@ section {
     filter: blur(0);
     opacity: 1;
     transform: translateY(0);
+}
+/* POS Image Slider */
+.pos-slider .project-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.pos-slider .img-overlay {
+    animation: fadeSwap 6s infinite ease-in-out;
+}
+
+@keyframes fadeSwap {
+    0%, 33.33% { opacity: 0; }
+    50%, 83.33% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* ReliefLink Image Slider */
+.relief-slider .project-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.relief-slider .img-overlay-1 {
+    animation: fadeSwap4_1 12s infinite ease-in-out;
+}
+.relief-slider .img-overlay-2 {
+    animation: fadeSwap4_2 12s infinite ease-in-out;
+}
+.relief-slider .img-overlay-3 {
+    animation: fadeSwap4_3 12s infinite ease-in-out;
+}
+@keyframes fadeSwap4_1 {
+    0%, 16.66% { opacity: 0; }
+    25%, 50% { opacity: 1; }
+    58.33%, 100% { opacity: 0; }
+}
+@keyframes fadeSwap4_2 {
+    0%, 41.66% { opacity: 0; }
+    50%, 75% { opacity: 1; }
+    83.33%, 100% { opacity: 0; }
+}
+@keyframes fadeSwap4_3 {
+    0%, 66.66% { opacity: 0; }
+    75%, 91.66% { opacity: 1; }
+    100% { opacity: 0; }
 }
