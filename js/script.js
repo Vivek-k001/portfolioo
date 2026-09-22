@@ -96,6 +96,12 @@ function moveCursor(e) {
     dotX = e.clientX; dotY = e.clientY;
     cursorDot.style.left = dotX + 'px';
     cursorDot.style.top = dotY + 'px';
+    if (cursorDot.style.opacity !== '1') {
+        cursorDot.style.opacity = '1';
+    }
+    if (cursorRing.style.opacity === '0' || !cursorRing.style.opacity) {
+        cursorRing.style.opacity = '0.5';
+    }
     if (!cursorStarted) { cursorStarted = true; animRing(); }
 }
 
@@ -118,15 +124,26 @@ function animRing() {
     requestAnimationFrame(animRing);
 }
 
-document.addEventListener('mousemove', moveCursor);
-document.addEventListener('mouseleave', () => {
+function showCursor() {
+    cursorDot.style.opacity = '1';
+    cursorRing.style.opacity = '0.5';
+}
+
+function hideCursor() {
     cursorDot.style.opacity = '0';
     cursorRing.style.opacity = '0';
-});
-document.addEventListener('mouseenter', () => {
-    if (html.getAttribute('data-theme') !== 'light') {
-        cursorDot.style.opacity = '1';
-        cursorRing.style.opacity = '0.5';
+}
+
+document.addEventListener('mousemove', moveCursor);
+document.addEventListener('mouseleave', hideCursor);
+document.addEventListener('mouseenter', showCursor);
+window.addEventListener('focus', showCursor);
+window.addEventListener('blur', hideCursor);
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+        showCursor();
+    } else {
+        hideCursor();
     }
 });
 
