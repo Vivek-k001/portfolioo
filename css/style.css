@@ -562,9 +562,7 @@ section {
 }
 
 .block {
-    animation: appear linear;
-    animation-timeline: view();
-    animation-range: entry 0% cover 20%;
+    opacity: 1;
 }
 
 /* =============================================
@@ -1099,8 +1097,9 @@ section {
 .slider-container {
     position: relative;
     width: 100%;
-    height: 420px;
-    perspective: 1000px;
+    max-width: 600px;
+    height: 300px;
+    perspective: 850px;
     transform-style: preserve-3d;
     margin: 0 auto;
     cursor: grab;
@@ -1119,21 +1118,21 @@ section {
 
 .slide {
     position: absolute;
-    width: 200px;
-    height: 200px;
+    width: 140px;
+    height: 140px;
     left: 50%;
     top: 50%;
-    margin-left: -100px;
-    margin-top: -100px;
+    margin-left: -70px;
+    margin-top: -70px;
     background: var(--surface);
     border: 1px solid var(--glass-border);
-    border-radius: 16px;
-    box-shadow: 0 8px 28px var(--shadow);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px var(--shadow);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 14px;
-    -webkit-box-reflect: below 8px linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.22));
+    padding: 10px;
+    -webkit-box-reflect: below 6px linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.22));
     overflow: hidden;
 }
 
@@ -1145,27 +1144,27 @@ section {
 }
 
 .slide:nth-child(1) {
-    transform: rotateY(0deg) translateZ(380px);
+    transform: rotateY(0deg) translateZ(250px);
 }
 
 .slide:nth-child(2) {
-    transform: rotateY(60deg) translateZ(380px);
+    transform: rotateY(60deg) translateZ(250px);
 }
 
 .slide:nth-child(3) {
-    transform: rotateY(120deg) translateZ(380px);
+    transform: rotateY(120deg) translateZ(250px);
 }
 
 .slide:nth-child(4) {
-    transform: rotateY(180deg) translateZ(380px);
+    transform: rotateY(180deg) translateZ(250px);
 }
 
 .slide:nth-child(5) {
-    transform: rotateY(240deg) translateZ(380px);
+    transform: rotateY(240deg) translateZ(250px);
 }
 
 .slide:nth-child(6) {
-    transform: rotateY(300deg) translateZ(380px);
+    transform: rotateY(300deg) translateZ(250px);
 }
 
 .slider-hint {
@@ -1955,44 +1954,74 @@ section {
     }
 
     .slider-container {
-        height: 300px;
+        height: 220px;
     }
 
     .slide {
-        width: 150px;
-        height: 150px;
-        margin-left: -75px;
-        margin-top: -75px;
+        width: 100px;
+        height: 100px;
+        margin-left: -50px;
+        margin-top: -50px;
+        border-radius: 10px;
     }
 
     .slide:nth-child(1) {
-        transform: rotateY(0deg) translateZ(235px);
+        transform: rotateY(0deg) translateZ(170px);
     }
 
     .slide:nth-child(2) {
-        transform: rotateY(60deg) translateZ(235px);
+        transform: rotateY(60deg) translateZ(170px);
     }
 
     .slide:nth-child(3) {
-        transform: rotateY(120deg) translateZ(235px);
+        transform: rotateY(120deg) translateZ(170px);
     }
 
     .slide:nth-child(4) {
-        transform: rotateY(180deg) translateZ(235px);
+        transform: rotateY(180deg) translateZ(170px);
     }
 
     .slide:nth-child(5) {
-        transform: rotateY(240deg) translateZ(235px);
+        transform: rotateY(240deg) translateZ(170px);
     }
 
     .slide:nth-child(6) {
-        transform: rotateY(300deg) translateZ(235px);
+        transform: rotateY(300deg) translateZ(170px);
     }
 
     .cert-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .cert-info {
+        padding: 12px 10px;
+    }
+
+    .cert-info h4 {
+        font-size: 0.88rem;
+    }
+
+    .cert-info p {
+        font-size: 0.75rem;
     }
 }
+
+/* Touch devices (phones / tablets) */
+@media (hover: none) and (pointer: coarse) {
+    .cursor-dot,
+    .cursor-ring {
+        display: none !important;
+    }
+
+    body,
+    button,
+    a,
+    .cert-card {
+        cursor: auto !important;
+    }
+}
+
 
 /* =============================================
    NEW EFFECTS (Glitch & Count Up)
@@ -2099,3 +2128,34 @@ section {
     75%, 91.66% { opacity: 1; }
     100% { opacity: 0; }
 }
+
+/* 3-Image Slider (EnQFlow & Dramify) */
+.enqflow-slider .project-img,
+.dramify-slider .project-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.enqflow-slider .img-overlay-1,
+.dramify-slider .img-overlay-1 {
+    animation: fadeSwap3_1 9s infinite ease-in-out;
+}
+
+.enqflow-slider .img-overlay-2,
+.dramify-slider .img-overlay-2 {
+    animation: fadeSwap3_2 9s infinite ease-in-out;
+}
+
+@keyframes fadeSwap3_1 {
+    0%, 25% { opacity: 0; }
+    33.33%, 58.33% { opacity: 1; }
+    66.66%, 100% { opacity: 0; }
+}
+
+@keyframes fadeSwap3_2 {
+    0%, 58.33% { opacity: 0; }
+    66.66%, 91.66% { opacity: 1; }
+    100% { opacity: 0; }
+}
+

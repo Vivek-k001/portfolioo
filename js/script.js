@@ -1,4 +1,4 @@
-﻿/* =============================================
+/* =============================================
    VIVEK K PORTFOLIO — Main Script
    ============================================= */
 
@@ -346,7 +346,7 @@ const logoFiles = [
     "react-logo.png", "sql-logo.png", "svelte-logo.png", "typescript-logo.png"
 ];
 const folderPath = "assets/logos/";
-const rowsCount = 3;
+const rowsCount = 2;
 
 function createCarousel() {
     const container = document.getElementById('carouselContainer');
